@@ -7,7 +7,7 @@ select distinct  SP.snum from SP
 	join P on P.pnum = SP.pnum
 	where SP.pnum in (select P.pnum from P where P.city = 'London');
 
---Es. 5.2 Elencare le città in cui non vi sono fornitori con status  minore della media (sia con costrutto in/not in che con costrutto any/all)
+--Es. 5.2 Elencare le città in cui non vi sono fornitori con status  minore della media (sia con in/not in che con costrutto any/all)
 select distinct S.city from S
 	where S.city not in (select S.city from S where S.status < (select avg(S.status) from S));
 	
